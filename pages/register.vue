@@ -46,7 +46,10 @@
 
 <script setup>
 const router = useRouter();
+import NavBar from "../Components/NavBar.vue";
 
+export default {
+ setup() {
 const username = ref('');
 const email = ref('');
 const password = ref('');
@@ -72,9 +75,11 @@ const handleSubmit = async () => {
     window.scrollTo(0, 0);
   }
 };
-onMounted(() => {
+ onMounted(() => {
   window.scrollTo(0, 0);
-});
+ });
+ }
+}
 </script>
 
 <style scoped>
