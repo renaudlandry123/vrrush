@@ -319,13 +319,13 @@ components: {
     NavBar,
   },
   mounted() {
+   window.scrollTo(0, 0);
     const faqs = document.querySelectorAll(".faq");
     faqs.forEach((faq) =>
       faq.addEventListener("click", () => {
         faq.classList.toggle("active");
       })
     );
-    
   },
 };
 </script>
