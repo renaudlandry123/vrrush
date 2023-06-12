@@ -113,7 +113,9 @@
   import '@fortawesome/fontawesome-free/css/all.css'
   
   export default {
-  
+  components: {
+    NavBar,
+  },
     mounted() {
       this.$nextTick(() => {
         const form = this.$refs.form;
