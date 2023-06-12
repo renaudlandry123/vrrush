@@ -50,6 +50,7 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 export default {
+name: NavBar,
   props: {
     avatarUrl: {
       type: String,
