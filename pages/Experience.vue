@@ -417,7 +417,8 @@ Experience the future with our cutting-edge VR headset. Dive into breathtaking v
   </template>
   
   <script>
-  import NavBar from "../Components/NavBar.vue";
+  import NavBar from "../Components/NavBar.vue"
+  
   export default {
   components: {
     NavBar,
