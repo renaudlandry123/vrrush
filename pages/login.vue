@@ -44,7 +44,7 @@
     </div>
   </template>
   
-  <script setup>
+  <script>
   const router = useRouter();
   import NavBar from "../Components/NavBar.vue";
   
