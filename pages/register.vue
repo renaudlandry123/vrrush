@@ -44,11 +44,14 @@
     </div>
 </template>
 
-<script setup>
+<script>
 const router = useRouter();
 import NavBar from "../Components/NavBar.vue";
 
 export default {
+components: {
+    NavBar,
+  },
  setup() {
 const username = ref('');
 const email = ref('');
