@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import NavBar from "../Components/NavBar.vue"
+import NavBar from "../Components/NavBar.vue";
 
 export default {
 components: {
@@ -59,11 +59,11 @@ return {
   email: '',
   message: '',
   formSubmitted: false
-}
+ }
 },
 mounted() {
  window.scrollTo(0, 0);
-}
+},
 methods: {
 submitForm() {
 const router = useRouter();
