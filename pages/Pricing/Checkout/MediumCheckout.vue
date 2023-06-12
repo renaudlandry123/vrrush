@@ -109,7 +109,6 @@
   </template>
   
   <script>
-  import NavBar from "../vrrush-websitee/Components/NavBar.vue";
   import '@fortawesome/fontawesome-free/css/all.css'
   
   export default {
