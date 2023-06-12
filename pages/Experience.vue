@@ -6,7 +6,7 @@
     <div class="image-column">
       <video class="experience-img" autoplay loop muted>
         <source
-          src="/Users/mariolandry/vrrush-websitee/video.mp4"
+          src="../assets/video.mp4"
           type="video/mp4"
           alt="experience1"
         />
