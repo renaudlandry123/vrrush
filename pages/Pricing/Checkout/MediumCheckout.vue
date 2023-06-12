@@ -109,6 +109,7 @@
   </template>
   
   <script>
+  import NavBar from '../src/components/NavBar.vue'
   import '@fortawesome/fontawesome-free/css/all.css'
   
   export default {
