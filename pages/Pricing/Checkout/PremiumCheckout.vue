@@ -110,7 +110,7 @@
   </template>
   
  <script>
- import NavBar from '@/components/Navbar.vue';
+ import NavBar from '@/Components/Navbar.vue';
  
   export default {
   components: {
