@@ -46,7 +46,13 @@
   
   <script setup>
   const router = useRouter();
-
+  import NavBar from "../Components/NavBar.vue";
+  
+  export default {
+   components: {
+    NavBar,
+  },
+  setup() {
   const email = ref('');
   const password = ref('');
   const avatarUrl = ref('');
@@ -68,9 +74,11 @@
     alert(e.error.message)
   }
 };
-onMounted(() => {
+ onMounted(() => {
   window.scrollTo(0, 0);
-});
+ });
+ }
+}
 </script>
 
 <style scoped>
