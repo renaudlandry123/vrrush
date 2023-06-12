@@ -110,7 +110,12 @@
   </template>
   
   <script>
+  import NavBar from "../Components/NavBar.vue";
+  
   export default {
+  components: {
+    NavBar,
+  },
     mounted() {
       this.$nextTick(() => {
         const form = this.$refs.form;
