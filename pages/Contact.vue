@@ -61,6 +61,9 @@ return {
   formSubmitted: false
 }
 },
+mounted() {
+ window.scrollTo(0, 0);
+}
 methods: {
 submitForm() {
 const router = useRouter();
@@ -68,8 +71,8 @@ const router = useRouter();
 this.formSubmitted = true;
 alert("Your message has been submitted!")
 router.push('/');
-}
-}
+  }
+ }
 }
 </script>
 
