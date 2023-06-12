@@ -424,6 +424,7 @@ Experience the future with our cutting-edge VR headset. Dive into breathtaking v
     NavBar,
   },
     mounted() {
+     window.scrollTo(0, 0);
       const idFromUrl = window.location.hash.substr(1);
 
       const scrollToElement = (elementId) => {
