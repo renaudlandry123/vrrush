@@ -25,7 +25,7 @@
   <div class="social__media--wrap">
     <div class="footer__logo">
       <a id="footer__logo">
-        <img class="VR-logo" src="https://content.ool.co.uk/wp-content/uploads/VR3480px-VR_Logo_Virtual_Reality_Logo.svg_-300x300.png" />
+        <img class="VR-logo" src="../assets/logo.png" />
         VR RUSH</a
       >
     </div>
