@@ -5,7 +5,7 @@ export default {
       '@nuxtjs/strapi',
     ],
     strapi: {
-      url: process.env.STRAPI_URL || 'https://hammerhead-app-ik4w8.ondigitalocean.app/',
+      url: process.env.STRAPI_URL || 'localhost:1337/',
       prefix: '/api',
       version: 'v4',
       cookie: {},
