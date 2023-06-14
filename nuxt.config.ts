@@ -5,7 +5,7 @@ export default {
       '@nuxtjs/strapi',
     ],
     strapi: {
-      url: process.env.STRAPI_URL || 'localhost:1337/',
+      url: process.env.STRAPI_URL || 'http://localhost:1337',
       prefix: '/api',
       version: 'v4',
       cookie: {},
