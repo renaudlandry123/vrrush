@@ -65,7 +65,6 @@
 </template>
 
 <script setup>
-import '@fortawesome/fontawesome-free/css/all.css'
 import NavBar from "../Components/NavBar.vue";
 const router = useRouter();
 
@@ -97,6 +96,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
+@import '@fortawesome/fontawesome-free/css/all.css'
 * {
     margin: 0;
     padding: 0;
