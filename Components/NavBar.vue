@@ -56,7 +56,7 @@ export default {
   name: "NavBar",
   data() {
     return {
-      strapi_jwt: null,
+      strapi_jwt: undefined,
       avatarUrl:
         "https://www.logolynx.com/images/logolynx/4b/4beebce89d681837ba2f4105ce43afac.png",
     };
@@ -89,7 +89,7 @@ export default {
     };
   },
   mounted() {
-    strapi_jwt = document.cookie.includes("strapi_jwt");
+    this.strapi_jwt = document.cookie.includes("strapi_jwt");
     const menu = document.querySelector("#mobile-menu");
     const menuLinks = document.querySelector(".navbar__menu");
     const navbarItems = document.querySelectorAll(
