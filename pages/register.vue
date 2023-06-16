@@ -1,4 +1,5 @@
 <template>
+  <NavBar />
   <div class="container">
     <div class="container-div">
       <div class="registration form">
