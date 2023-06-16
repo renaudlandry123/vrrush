@@ -86,6 +86,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
+  @import url("@fortawesome/fontawesome-free/css/all.css");
   * {
     margin: 0;
     padding: 0;
