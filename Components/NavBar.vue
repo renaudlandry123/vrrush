@@ -29,33 +29,37 @@
           <router-link to="/Contact" class="navbar__links">Contact</router-link>
         </li>
         <li class="navbar__item">
-          <router-link to="/login" v-if="!avatarUrl" class="navbar__links">Login</router-link>
+          <router-link to="/login" v-if="!strapi_jwt" class="navbar__links"
+            >Login</router-link
+          >
         </li>
         <li class="navbar__avatar" @click="dropdownVisible = !dropdownVisible">
-            <img v-if="avatarUrl" class="avatar" :src="avatarUrl" alt="Avatar">
-            <div class="dropdown" :class="{ 'active': dropdownVisible }">
+          <img v-if="strapi_jwt" class="avatar" :src="avatarUrl" />
+          <div class="dropdown" :class="{ active: dropdownVisible }">
             <div class="logout__btn" @click.prevent="onClick">Logout</div>
           </div>
-        </li>  
+        </li>
         <li class="navbar__btn">
-          <router-link to="/register" v-if="!avatarUrl" class="button">Sign up</router-link>
+          <router-link to="/register" v-if="!strapi_jwt" class="button"
+            >Sign up</router-link
+          >
         </li>
       </ul>
     </div>
   </nav>
 </template>
 
-
 <script>
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 export default {
-name: "NavBar",
-  props: {
-    avatarUrl: {
-      type: String,
-      required: true,
-    },
+  name: "NavBar",
+  data() {
+    return {
+      strapi_jwt: document.cookie.includes("strapi_jwt"),
+      avatarUrl:
+        "https://www.logolynx.com/images/logolynx/4b/4beebce89d681837ba2f4105ce43afac.png",
+    };
   },
   setup() {
     const { logout } = useStrapiAuth();
@@ -63,22 +67,22 @@ name: "NavBar",
 
     const onClick = () => {
       logout();
-      router.push('/');
+      router.push("/");
     };
 
     const dropdownVisible = ref(false);
 
-  const mountedd = () => {
-    const handleOutsideClick = (event) => {
-      const target = event.target;
-      const dropdown = document.querySelector(".dropdown");
-      if (!dropdown.contains(target)) {
-        dropdownVisible.value = false;
-      }
-    };
+    const mountedd = () => {
+      const handleOutsideClick = (event) => {
+        const target = event.target;
+        const dropdown = document.querySelector(".dropdown");
+        if (!dropdown.contains(target)) {
+          dropdownVisible.value = false;
+        }
+      };
 
-    document.addEventListener("click", handleOutsideClick);
-  }
+      document.addEventListener("click", handleOutsideClick);
+    };
 
     return {
       onClick,
@@ -110,14 +114,14 @@ name: "NavBar",
     const dropdownVisible = ref(false);
 
     const handleOutsideClick = (event) => {
-    const target = event.target;
-    const dropdown = document.querySelector(".dropdown");
-    if (!dropdown.contains(target)) {
-      dropdownVisible.value = false;
-    }
-  };
+      const target = event.target;
+      const dropdown = document.querySelector(".dropdown");
+      if (!dropdown.contains(target)) {
+        dropdownVisible.value = false;
+      }
+    };
 
-  document.addEventListener("click", handleOutsideClick);
+    document.addEventListener("click", handleOutsideClick);
   },
   beforeUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
