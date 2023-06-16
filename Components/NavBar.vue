@@ -68,6 +68,7 @@ export default {
     const onClick = () => {
       logout();
       router.push("/");
+      this.strapi_jwt = "strapi_jwt; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     };
 
     const dropdownVisible = ref(false);
