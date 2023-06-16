@@ -1,84 +1,86 @@
 <template>
-  <NavBar :avatarUrl="avatarUrl" />
-    <div class="container">
-       <div class="container-div">
-      <input type="checkbox" id="check">
-    <div class="login form">
-      <header style="color: black">Login</header>
-      <form @submit.prevent="handleSubmit">
-        <input v-model="email" name="name" type="text" placeholder="Enter your email" required>
-        <input v-model="password" type="password" placeholder="Enter your password" required>
-        <input type="submit" name="submit" class="button" value="Submit">
-      </form>
-      <div class="signup">
-        <span style="color: black" class="signup">Don't have an account?
-         <nuxt-link to="/register"><label for="check">register</label></nuxt-link>
-        </span>
-      </div>
-    </div>
-    </div>
-  </div>
-    <div class="footer__container">
-      <div class="social__media">
-        <div class="social__media--wrap">
-          <div class="footer__logo">
-            <a id="footer__logo">
-              <img class="VR-logo" src="../assets/logo.png" />
-              VR RUSH</a
+  <div class="container">
+    <div class="container-div">
+      <input type="checkbox" id="check" />
+      <div class="login form">
+        <header style="color: black">Login</header>
+        <form @submit.prevent="handleSubmit">
+          <input
+            v-model="email"
+            name="name"
+            type="text"
+            placeholder="Enter your email"
+            required
+          />
+          <input
+            v-model="password"
+            type="password"
+            placeholder="Enter your password"
+            required
+          />
+          <input type="submit" name="submit" class="button" value="Submit" />
+        </form>
+        <div class="signup">
+          <span style="color: black" class="signup"
+            >Don't have an account?
+            <nuxt-link to="/register"
+              ><label for="check">register</label></nuxt-link
             >
-          </div>
-          <p class="website__rights">© Vr Rush 2023. All rights reserved</p>
-          <div class="social__icons">
-            <a href="/" class="social__icon--link" target="_blank">
-              <i class="fab fa-tiktok"></i>
-            </a>
-            <a href="/" class="social__icon--link" target="_blank">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="/" class="social__icon--link" target="_blank">
-              <i class="fab fa-youtube"></i>
-            </a>
-          </div>
+          </span>
         </div>
       </div>
     </div>
-  </template>
-  
-  <script>
-  const router = useRouter();
-  import NavBar from "../Components/NavBar.vue";
-  
-  export default {
-   components: {
-    NavBar,
-  },
-  setup() {
-  const email = ref('');
-  const password = ref('');
-  const avatarUrl = ref('');
-  const formSubmitted = ref(false);
-  
-  const { login } = useStrapiAuth();
-  
-  const handleSubmit = async () => {
-    try {
-      await login({
-        identifier: email.value,
-        password: password.value,
-      });
-      const avatar = '../assets/avatar.png'
-          avatarUrl.value = avatar;
-          formSubmitted.value = true;
-          router.push("/");
-    } catch (e) {
-    alert(e.error.message)
+  </div>
+  <div class="footer__container">
+    <div class="social__media">
+      <div class="social__media--wrap">
+        <div class="footer__logo">
+          <a id="footer__logo">
+            <img class="VR-logo" src="../assets/logo.png" />
+            VR RUSH</a
+          >
+        </div>
+        <p class="website__rights">© Vr Rush 2023. All rights reserved</p>
+        <div class="social__icons">
+          <a href="/" class="social__icon--link" target="_blank">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="/" class="social__icon--link" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="/" class="social__icon--link" target="_blank">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+const router = useRouter();
+
+const email = ref("");
+const password = ref("");
+const formSubmitted = ref(false);
+
+const { login } = useStrapiAuth();
+
+const handleSubmit = async () => {
+  try {
+    await login({
+      identifier: email.value,
+      password: password.value,
+    });
+    formSubmitted.value = true;
+    router.push("/");
+  } catch (e) {
+    alert(e.error.message);
   }
 };
- onMounted(() => {
+onMounted(() => {
   window.scrollTo(0, 0);
- });
- }
-}
+});
 </script>
 
 <style scoped>
