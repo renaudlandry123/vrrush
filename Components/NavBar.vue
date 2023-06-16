@@ -50,17 +50,13 @@
 </template>
 
 <script>
-const cookie = require("cookie");
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 export default {
   name: "NavBar",
   data() {
-    const cookies = process.env.COOKIE || "";
-    const parsedCookies = cookie.parse(cookies);
-
     return {
-      strapi_jwt: parsedCookies.strapi_jwt !== undefined,
+      strapi_jwt: null,
       avatarUrl:
         "https://www.logolynx.com/images/logolynx/4b/4beebce89d681837ba2f4105ce43afac.png",
     };
@@ -87,13 +83,13 @@ export default {
 
       document.addEventListener("click", handleOutsideClick);
     };
-
     return {
       onClick,
       dropdownVisible,
     };
   },
   mounted() {
+    strapi_jwt = document.cookie.includes("strapi_jwt");
     const menu = document.querySelector("#mobile-menu");
     const menuLinks = document.querySelector(".navbar__menu");
     const navbarItems = document.querySelectorAll(
@@ -152,6 +148,7 @@ export default {
   },
 };
 </script>
+
 
 <style scoped>
 * {
