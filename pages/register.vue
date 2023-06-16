@@ -1,62 +1,74 @@
 <template>
-  <NavBar :avatarUrl="avatarUrl" />
   <div class="container">
     <div class="container-div">
       <div class="registration form">
         <header style="color: black">Signup</header>
         <form @submit.prevent="handleSubmit">
-          <input v-model="username" name="name" type="text" placeholder="Create a username" required>
-          <input v-model="email" name="name" type="text" placeholder="Enter your email" required>
-          <input v-model="password" type="password" placeholder="Create a password" required>
-          <input type="submit" name="submit" class="button" value="Submit">
+          <input
+            v-model="username"
+            name="name"
+            type="text"
+            placeholder="Create a username"
+            required
+          />
+          <input
+            v-model="email"
+            name="name"
+            type="text"
+            placeholder="Enter your email"
+            required
+          />
+          <input
+            v-model="password"
+            type="password"
+            placeholder="Create a password"
+            required
+          />
+          <input type="submit" name="submit" class="button" value="Submit" />
         </form>
         <div class="signup">
-          <span style="color: black;" class="signup">Already have an account?
-            <router-link to="/Login"><label for="check">Login</label></router-link>
+          <span style="color: black" class="signup"
+            >Already have an account?
+            <router-link to="/Login"
+              ><label for="check">Login</label></router-link
+            >
           </span>
         </div>
       </div>
     </div>
   </div>
   <div class="footer__container">
-      <div class="social__media">
-        <div class="social__media--wrap">
-          <div class="footer__logo">
-            <a id="footer__logo">
-              <img class="VR-logo" src="../assets/logo.png" />
-              VR RUSH</a
-            >
-          </div>
-          <p class="website__rights">© Vr Rush 2023. All rights reserved</p>
-          <div class="social__icons">
-            <a href="/" class="social__icon--link" target="_blank">
-              <i class="fab fa-tiktok"></i>
-            </a>
-            <a href="/" class="social__icon--link" target="_blank">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="/" class="social__icon--link" target="_blank">
-              <i class="fab fa-youtube"></i>
-            </a>
-          </div>
+    <div class="social__media">
+      <div class="social__media--wrap">
+        <div class="footer__logo">
+          <a id="footer__logo">
+            <img class="VR-logo" src="../assets/logo.png" />
+            VR RUSH</a
+          >
+        </div>
+        <p class="website__rights">© Vr Rush 2023. All rights reserved</p>
+        <div class="social__icons">
+          <a href="/" class="social__icon--link" target="_blank">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="/" class="social__icon--link" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="/" class="social__icon--link" target="_blank">
+            <i class="fab fa-youtube"></i>
+          </a>
         </div>
       </div>
     </div>
+  </div>
 </template>
 
-<script>
+<script setup>
 const router = useRouter();
-import NavBar from "../Components/NavBar.vue";
 
-export default {
-components: {
-    NavBar,
-  },
- setup() {
-const username = ref('');
-const email = ref('');
-const password = ref('');
-const avatarUrl = ref('');
+const username = ref("");
+const email = ref("");
+const password = ref("");
 const formSubmitted = ref(false);
 
 const { register } = useStrapiAuth();
@@ -68,21 +80,17 @@ const handleSubmit = async () => {
       email: email.value,
       password: password.value,
     });
-    const avatar = '../assets/avatar.png'
-    avatarUrl.value = avatar;
     formSubmitted.value = true;
-    router.push("/")
+    router.push("/");
   } catch (e) {
-    alert(e.error.message)
+    alert(e.error.message);
     window.location.reload();
     window.scrollTo(0, 0);
   }
 };
- onMounted(() => {
+onMounted(() => {
   window.scrollTo(0, 0);
- });
- }
-}
+});
 </script>
 
 <style scoped>
