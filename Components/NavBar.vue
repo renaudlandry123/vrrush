@@ -50,13 +50,17 @@
 </template>
 
 <script>
+const cookie = require("cookie");
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 export default {
   name: "NavBar",
   data() {
+    const cookies = process.env.COOKIE || "";
+    const parsedCookies = cookie.parse(cookies);
+
     return {
-      strapi_jwt: document.cookie.includes("strapi_jwt"),
+      strapi_jwt: parsedCookies.strapi_jwt !== undefined,
       avatarUrl:
         "https://www.logolynx.com/images/logolynx/4b/4beebce89d681837ba2f4105ce43afac.png",
     };
